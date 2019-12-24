@@ -1,0 +1,7 @@
+{
+  "extends": "@civilizeddev",
+  "root": true,
+  "rules": {
+    "import/no-nodejs-modules": "off"
+  }
+}

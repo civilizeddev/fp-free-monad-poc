@@ -1,0 +1,27 @@
+{
+  "name": "fp-free-monad-poc",
+  "version": "1.0.0",
+  "description": "FP Free Monad PoC",
+  "private": true,
+  "repository": "https://civilizeddev@github.com/civilizeddev/fp-free-monad-poc.git",
+  "author": "Hyeonsoo Lee <hyeonsoo.david.lee@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build --force",
+    "debug": "ts-node ."
+  },
+  "dependencies": {
+    "fp-ts": "^2.3",
+    "fp-ts-contrib": "^0.1.8"
+  },
+  "devDependencies": {
+    "@civilizeddev/eslint-config": "^0.0.1",
+    "@types/jest": "^24.0",
+    "@types/node": "^12",
+    "jest": "^24.9",
+    "jest-junit": "^10.0",
+    "ts-jest": "^24.2",
+    "ts-node": "^8.5",
+    "typescript": "^3.7"
+  }
+}
