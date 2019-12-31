@@ -75,7 +75,7 @@ function main<F extends URIS>(F: Main<F>): Kind<F, void> {
   // ask something and get the answer
   const ask = (question: string): Kind<F, string> =>
     Do(F)
-      .do(F.putStrLn(question) as Kind<F, unknown>)
+      .do(F.putStrLn(question))
       .bind('answer', F.getStrLn)
       .return(({ answer }) => answer)
 
@@ -85,9 +85,9 @@ function main<F extends URIS>(F: Main<F>): Kind<F, void> {
       .bindL('result', ({ answer }) => {
         switch (answer.toLowerCase()) {
           case 'y':
-            return F.of<boolean>(true)
+            return F.of(true)
           case 'n':
-            return F.of<boolean>(false)
+            return F.of(false)
           default:
             return shouldContinue(name)
         }
@@ -101,17 +101,16 @@ function main<F extends URIS>(F: Main<F>): Kind<F, void> {
         guess: ask(`Dear ${name}, please guess a number from 1 to 5`),
         secret: F.nextInt(5),
       })
-      .doL(
-        ({ guess, secret }) =>
-          O.fold(
-            () => F.putStrLn('You did not enter an integer!'),
-            (x: number) =>
-              x === secret
-                ? F.putStrLn(`You guessed right, ${name}!`)
-                : F.putStrLn(
-                    `You guessed wrong, ${name}! The number was: ${secret}`,
-                  ),
-          )(parse(guess)) as Kind<F, unknown>,
+      .doL(({ guess, secret }) =>
+        O.fold(
+          () => F.putStrLn('You did not enter an integer!'),
+          (x: number) =>
+            x === secret
+              ? F.putStrLn(`You guessed right, ${name}!`)
+              : F.putStrLn(
+                  `You guessed wrong, ${name}! The number was: ${secret}`,
+                ),
+        )(parse(guess)),
       )
       .bind('shouldContinue', shouldContinue(name))
       .bindL('result', ({ shouldContinue }) =>
@@ -121,11 +120,8 @@ function main<F extends URIS>(F: Main<F>): Kind<F, void> {
 
   return Do(F)
     .bind('name', ask('What is your name?'))
-    .doL(
-      ({ name }) =>
-        F.putStrLn(`Hello, ${name} welcome to the game!`) as Kind<F, unknown>,
-    )
-    .doL(({ name }) => gameLoop(name) as Kind<F, unknown>)
+    .doL(({ name }) => F.putStrLn(`Hello, ${name} welcome to the game!`))
+    .doL(({ name }) => gameLoop(name))
     .return(() => undefined as void)
 }
 

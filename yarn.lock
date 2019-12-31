@@ -1588,12 +1588,12 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-fp-ts-contrib@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/fp-ts-contrib/-/fp-ts-contrib-0.1.8.tgz#4695f003194fea57bfa8a344c6fc4a9b481c163b"
-  integrity sha512-4BCshD2SdXoRrq9lyR6bMDuLCqwToh5RWgX919gjjPBXJCTiRfmD972hSxHRyZFqTjU8pd17sdhj7odJkfgvUg==
+fp-ts-contrib@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/fp-ts-contrib/-/fp-ts-contrib-0.1.9.tgz#adc3a9e566bd3ecab51f2a04c6e9c377112b9024"
+  integrity sha512-sljx10NZSA+kRUqSh4alV4MlMfIBEbSQqyD+KdpQJhdpbXECTsV1Mrxx4MtrOA01sfwZIT3VqS8ndGLbto6XdQ==
 
-fp-ts@^2.3:
+fp-ts@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.3.1.tgz#8068bfcca118227932941101e062134d7ecd9119"
   integrity sha512-KevPBnYt0aaJiuUzmU9YIxjrhC9AgJ8CLtLlXmwArovlNTeYM5NtEoKd86B0wHd7FIbzeE8sNXzCoYIOr7e6Iw==
