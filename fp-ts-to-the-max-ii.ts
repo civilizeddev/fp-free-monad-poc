@@ -1,6 +1,6 @@
 import { URIS, Kind } from 'fp-ts/lib/HKT'
 import { createInterface } from 'readline'
-import { flow } from 'fp-ts/lib/function'
+import { flow, constVoid } from 'fp-ts/lib/function'
 import * as C from 'fp-ts/lib/Console'
 import * as M from 'fp-ts/lib/Monad'
 import * as O from 'fp-ts/lib/Option'
@@ -122,7 +122,7 @@ function main<F extends URIS>(F: Main<F>): Kind<F, void> {
     .bind('name', ask('What is your name?'))
     .doL(({ name }) => F.putStrLn(`Hello, ${name} welcome to the game!`))
     .doL(({ name }) => gameLoop(name))
-    .return(() => undefined as void)
+    .return(constVoid)
 }
 
 export const mainTask = main({
